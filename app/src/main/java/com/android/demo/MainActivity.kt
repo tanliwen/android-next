@@ -5,12 +5,12 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import androidx.activity.ComponentActivity
-import androidx.activity.enableEdgeToEdge
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.android.demo.aidl.AidlClientActivity
+import com.android.demo.jni.JniDemoActivity
 import com.android.demo.lifecycle.TestLifecycleActivity
 import com.android.demo.log.LogTag
 import com.android.demo.messenger.MessengerClientActivity
@@ -41,6 +41,7 @@ class MainActivity : ComponentActivity(), View.OnClickListener {
         findViewById<View>(R.id.btn_lifecycle)?.setOnClickListener(this)
         findViewById<View>(R.id.btn_messenger)?.setOnClickListener(this)
         findViewById<View>(R.id.btn_parcelable)?.setOnClickListener(this)
+        findViewById<View>(R.id.btn_jni)?.setOnClickListener(this)
         Log.d(TAG, "onCreate ${this::class.simpleName}")
     }
 
@@ -49,24 +50,19 @@ class MainActivity : ComponentActivity(), View.OnClickListener {
         v?.let {
             when(v.id) {
                 R.id.btn_lifecycle -> {
-                    val intent = Intent()
-                    intent.setClass(this.applicationContext, TestLifecycleActivity::class.java)
-                    startActivity(intent)
+                    open(TestLifecycleActivity::class.java)
                 }
                 R.id.btn_aidl -> {
-                    val intent = Intent()
-                    intent.setClass(this.applicationContext, AidlClientActivity::class.java)
-                    startActivity(intent)
+                    open( AidlClientActivity::class.java)
                 }
                 R.id.btn_messenger -> {
-                    val intent = Intent()
-                    intent.setClass(this.applicationContext, MessengerClientActivity::class.java)
-                    startActivity(intent)
+                    open(MessengerClientActivity::class.java)
                 }
                 R.id.btn_parcelable -> {
-                    val intent = Intent()
-                    intent.setClass(this.applicationContext, ParcelableActivityA::class.java)
-                    startActivity(intent)
+                    open(ParcelableActivityA::class.java)
+                }
+                R.id.btn_jni -> {
+                    open(JniDemoActivity::class.java)
                 }
                 else ->{
 
@@ -75,6 +71,11 @@ class MainActivity : ComponentActivity(), View.OnClickListener {
         }
     }
 
+    private fun open(cls: Class<*> ) {
+        val intent = Intent()
+        intent.setClass(this.applicationContext, cls)
+        startActivity(intent)
+    }
 
     override fun onRestart() {
         super.onRestart()

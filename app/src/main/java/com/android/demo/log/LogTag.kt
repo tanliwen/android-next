@@ -21,4 +21,9 @@ object LogTag {
       Parcelable 示例
      */
     const val TAG_PARCELABLE = "tag_parcelable"
+
+    /*
+     JNI
+     */
+    const val TAG_JNI = "tag_jni"
 }
