@@ -12,12 +12,13 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.android.demo.log.LogTag
 import com.android.demo.ui.theme.AndroidDemoTheme
 
 class TestLifecycleActivity : ComponentActivity() {
 
      companion object {
-         const val TAG = "tag_lifecycle_A"
+         const val TAG = LogTag.TAG_LIFECYCLE
      }
 
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -7,7 +7,6 @@
     <Button
         android:id="@+id/btn_lifecycle"
         android:text="lifecycle"
-        android:onClick="click"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
 
@@ -15,7 +14,12 @@
     <Button
         android:id="@+id/btn_aidl"
         android:text="aidl"
-        android:onClick="click"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:id="@+id/btn_messenger"
+        android:text="messenger"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
 

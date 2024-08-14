@@ -14,11 +14,12 @@ import android.widget.Toast
 import androidx.activity.ComponentActivity
 import com.android.demo.R
 import com.android.demo.R.id
+import com.android.demo.log.LogTag
 
 class AidlClientActivity : ComponentActivity(), View.OnClickListener {
 
     companion object {
-        private const val TAG = "tag_aidl_client"
+        private const val TAG = "${LogTag.TAG_AIDL}_client"
     }
 
     private var mRemoteService: IRemoteService? = null
@@ -28,7 +29,7 @@ class AidlClientActivity : ComponentActivity(), View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         Log.i(TAG, "[${this::class.simpleName}]  onCreate")
-        setContentView(R.layout.activity_layout_activity_bind)
+        setContentView(R.layout.activity_layout_aidl)
         mCallBackTv = findViewById(id.tv_callback)
         mCallBackTv.setText(R.string.remote_service_unattached)
         findViewById<View>(id.btn_bind).setOnClickListener(this)

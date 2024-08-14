@@ -12,17 +12,19 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.android.demo.aidl.AidlClientActivity
 import com.android.demo.lifecycle.TestLifecycleActivity
+import com.android.demo.log.LogTag
+import com.android.demo.messenger.MessengerClientActivity
 import com.android.demo.ui.theme.AndroidDemoTheme
 
 class MainActivity : ComponentActivity(), View.OnClickListener {
 
      companion object {
-         const val TAG = "tag_lifecycle_main"
+         const val TAG = "${LogTag.TAG_LIFECYCLE}_main"
      }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
+//        enableEdgeToEdge()
        /* setContent {
             AndroidDemoTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
@@ -33,9 +35,10 @@ class MainActivity : ComponentActivity(), View.OnClickListener {
                 }
             }
         }*/
-        setContentView(R.layout.layout)
+        setContentView(R.layout.activity_layout_main)
         findViewById<View>(R.id.btn_aidl)?.setOnClickListener(this)
         findViewById<View>(R.id.btn_lifecycle)?.setOnClickListener(this)
+        findViewById<View>(R.id.btn_messenger)?.setOnClickListener(this)
         Log.d(TAG, "onCreate ${this::class.simpleName}")
     }
 
@@ -52,6 +55,13 @@ class MainActivity : ComponentActivity(), View.OnClickListener {
                     val intent = Intent()
                     intent.setClass(this.applicationContext, AidlClientActivity::class.java)
                     startActivity(intent)
+                }
+                R.id.btn_messenger -> {
+                    val intent = Intent()
+                    intent.setClass(this.applicationContext, MessengerClientActivity::class.java)
+                    startActivity(intent)
+                } else ->{
+
                 }
             }
         }

@@ -6,13 +6,14 @@ import android.os.IBinder
 import android.os.Parcel
 import android.os.Process
 import android.os.RemoteException
-import com.android.demo.logD
+import com.android.demo.log.LogTag
+import com.android.demo.log.logD
 
 
 class RemoteService : Service() {
 
     companion object {
-        const val TAG = "tag_aidl_remote"
+        const val TAG = "${LogTag.TAG_AIDL}_service"
     }
 
     private lateinit var mMyData: MyData

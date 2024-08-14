@@ -1,4 +1,4 @@
-package com.android.demo
+package com.android.demo.log
 
 import android.util.Log
 
