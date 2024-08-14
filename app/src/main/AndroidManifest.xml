@@ -43,7 +43,19 @@
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.AndroidDemo"/>
+
         <service android:name="com.android.demo.messenger.MessengerService" android:process=":remote_messenger"/>
+
+
+        <activity
+            android:name="com.android.demo.parcelable.ParcelableActivityA"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.AndroidDemo"/>
+
+        <activity
+            android:name="com.android.demo.parcelable.ParcelableActivityB"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.AndroidDemo"/>
 
     </application>
 

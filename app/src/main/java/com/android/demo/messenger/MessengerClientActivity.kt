@@ -27,7 +27,7 @@ class MessengerClientActivity : ComponentActivity() {
 
     private val connection: ServiceConnection = object : ServiceConnection {
         override fun onServiceConnected(name: ComponentName, service: IBinder) {
-            Log.d(TAG, "[${MessengerClientActivity::class.simpleName}] Connected to service")
+            Log.d(TAG, "[${MessengerClientActivity::class.simpleName}] onServiceConnected")
             serviceMessenger = Messenger(service)
             isBound = true
 
@@ -43,7 +43,7 @@ class MessengerClientActivity : ComponentActivity() {
         }
 
         override fun onServiceDisconnected(name: ComponentName) {
-            Log.d(TAG, "[${MessengerClientActivity::class.simpleName}] Disconnected from service")
+            Log.d(TAG, "[${MessengerClientActivity::class.simpleName}] onServiceDisconnected")
             serviceMessenger = null
             isBound = false
         }
@@ -66,11 +66,18 @@ class MessengerClientActivity : ComponentActivity() {
             val intent = Intent(this@MessengerClientActivity, MessengerService::class.java)
             bindService(intent, connection, BIND_AUTO_CREATE)
         }
+        findViewById<Button>(R.id.btn_unbind).setOnClickListener {
+            unBindServiceIfNeeded()
+        }
     }
 
     override fun onDestroy() {
         super.onDestroy()
+        unBindServiceIfNeeded()
+    }
+    private fun unBindServiceIfNeeded() {
         if (isBound) {
+            isBound = false
             unbindService(connection)
         }
     }

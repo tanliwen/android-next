@@ -14,6 +14,7 @@ import com.android.demo.aidl.AidlClientActivity
 import com.android.demo.lifecycle.TestLifecycleActivity
 import com.android.demo.log.LogTag
 import com.android.demo.messenger.MessengerClientActivity
+import com.android.demo.parcelable.ParcelableActivityA
 import com.android.demo.ui.theme.AndroidDemoTheme
 
 class MainActivity : ComponentActivity(), View.OnClickListener {
@@ -39,6 +40,7 @@ class MainActivity : ComponentActivity(), View.OnClickListener {
         findViewById<View>(R.id.btn_aidl)?.setOnClickListener(this)
         findViewById<View>(R.id.btn_lifecycle)?.setOnClickListener(this)
         findViewById<View>(R.id.btn_messenger)?.setOnClickListener(this)
+        findViewById<View>(R.id.btn_parcelable)?.setOnClickListener(this)
         Log.d(TAG, "onCreate ${this::class.simpleName}")
     }
 
@@ -60,7 +62,13 @@ class MainActivity : ComponentActivity(), View.OnClickListener {
                     val intent = Intent()
                     intent.setClass(this.applicationContext, MessengerClientActivity::class.java)
                     startActivity(intent)
-                } else ->{
+                }
+                R.id.btn_parcelable -> {
+                    val intent = Intent()
+                    intent.setClass(this.applicationContext, ParcelableActivityA::class.java)
+                    startActivity(intent)
+                }
+                else ->{
 
                 }
             }
