@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">AndroidDemo</string>
+    <string name="remote_service_unattached">unattached</string>
+    <string name="remote_service_connected">connected</string>
+    <string name="remote_service_disconnected">disconnected</string>
+    <string name="binding">binding</string>
+    <string name="unbinding">unbinding</string>
+    <string name="kill_success">kill_success</string>
+    <string name="kill_failure">kill_failure</string>
+</resources>
