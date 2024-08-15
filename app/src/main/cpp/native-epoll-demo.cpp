@@ -90,9 +90,14 @@ extern "C" JNIEXPORT jstring JNICALL
 Java_com_android_demo_epoll_EpollDemo_createServer(
         JNIEnv *env,
         jobject /* this */) {
-    std::string hello = "create from epoll test C++";
-    createEpollServer();
-    return env->NewStringUTF(hello.c_str());
+    std::stringstream ss;
+    if (mWakeEventFd == -1) {
+        ss << "create server";
+        createEpollServer();
+    } else {
+        ss << "ignore create server epoll fd = " <<  mWakeEventFd;
+    }
+    return env->NewStringUTF(ss.str().c_str());
 }
 
 void writeCloseData(uint64_t uiWrite) {
