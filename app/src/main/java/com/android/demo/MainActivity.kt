@@ -10,6 +10,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.android.demo.aidl.AidlClientActivity
+import com.android.demo.epoll.EpollDemoActivity
 import com.android.demo.jni.JniDemoActivity
 import com.android.demo.lifecycle.TestLifecycleActivity
 import com.android.demo.log.LogTag
@@ -42,6 +43,7 @@ class MainActivity : ComponentActivity(), View.OnClickListener {
         findViewById<View>(R.id.btn_messenger)?.setOnClickListener(this)
         findViewById<View>(R.id.btn_parcelable)?.setOnClickListener(this)
         findViewById<View>(R.id.btn_jni)?.setOnClickListener(this)
+        findViewById<View>(R.id.btn_epoll)?.setOnClickListener(this)
         Log.d(TAG, "onCreate ${this::class.simpleName}")
     }
 
@@ -63,6 +65,9 @@ class MainActivity : ComponentActivity(), View.OnClickListener {
                 }
                 R.id.btn_jni -> {
                     open(JniDemoActivity::class.java)
+                }
+                R.id.btn_epoll -> {
+                    open(EpollDemoActivity::class.java)
                 }
                 else ->{
 

@@ -27,6 +27,7 @@ project("jni-demo")
 add_library(${CMAKE_PROJECT_NAME} SHARED
         # List C/C++ source files with relative paths to this CMakeLists.txt.
         native-jni-demo.cpp
+        native-epoll-demo.cpp
 )
 
 # Specifies libraries CMake should link to your target library. You

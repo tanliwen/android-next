@@ -1,6 +1,5 @@
 package com.android.demo.jni
 
-import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -8,8 +7,6 @@ import android.widget.TextView
 import androidx.activity.ComponentActivity
 import com.android.demo.R
 import com.android.demo.R.id
-import com.android.demo.aidl.MyData
-import com.android.demo.lifecycle.TestLifecycleActivity
 import com.android.demo.log.LogTag
 
 class JniDemoActivity : ComponentActivity(), View.OnClickListener {

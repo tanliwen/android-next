@@ -12,4 +12,5 @@ open class JniDemo {
     }
 
     external fun stringFromJNI(): String
+    external fun testEpoll(): String
 }

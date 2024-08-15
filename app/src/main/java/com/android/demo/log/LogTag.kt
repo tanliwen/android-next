@@ -26,4 +26,9 @@ object LogTag {
      JNI
      */
     const val TAG_JNI = "tag_jni"
+
+    /*
+      epoll
+     */
+    const val TAG_NATIVE_EPOLL = "tag_native_epoll"
 }
